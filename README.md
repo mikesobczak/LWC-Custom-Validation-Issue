@@ -1,18 +1,24 @@
-# Salesforce DX Project: Next Steps
+# LWC Custom Validation Issue
 
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
+Issue is a result of using custom validation on an input that is tied to a selection in a radio button group.
 
-## How Do You Plan to Deploy Your Changes?
+## Issue at hand
 
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
+<p>The initial state of the component:</p>
 
-## Configure Your Salesforce DX Project
+<img src="images/payment1.png">
 
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
+<p>Place cursor into the another amount input field.</p>
+<p>Custom validation is triggered and the field is displayed as required.</p>
 
-## Read All About It
+<img src="images/payment2.png">
 
-- [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
-- [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
+<p>Select a different radio button option that does not make the input field required.</p>
+<p>Input field still shows the custom validation message.</p>
+
+<img src="images/payment3.png">
+
+<p>Select another radio button that does not make the input field required.</p>
+<p>The custom validation message for the input finally disappears.</p>
+
+<img src="images/payment4.png">
