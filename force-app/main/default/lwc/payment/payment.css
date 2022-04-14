@@ -1,0 +1,17 @@
+.paymentArea {
+    width: 385px;
+    border: 0px solid #000;
+    background-color: #fff;
+}
+
+.inputAmount {
+    width: 100px;
+}
+
+.areaOfSupport {
+    width: 200px;
+}
+
+.anotherAmount {
+    margin-left: 24px;
+}
