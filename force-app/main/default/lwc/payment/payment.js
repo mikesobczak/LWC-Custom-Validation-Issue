@@ -27,19 +27,15 @@ export default class Payment extends LightningElement {
         this.amountToPaySelection = AMOUNT_DUE_TODAY_OPTION
     }
 
-    handleAmountToPayChange(event) {
-
-        console.log('payment', 'handleAmountToPayChange()', event.detail.value);
-
+    async handleAmountToPayChange(event) {
         this.amountToPaySelection = event.detail.value;
-
+        const anotherAmountField = this.template.querySelector('.anotherAmount');
         if(this.amountToPaySelection !== ANOTHER_AMOUNT_OPTION) {
             this.anotherAmount = undefined;
-
-            let anotherAmountCmp = this.template.querySelector(".anotherAmount");
-            anotherAmountCmp.setCustomValidity("");
-            anotherAmountCmp.reportValidity();
-            anotherAmountCmp.checkValidity();
+            await Promise.resolve();
+            anotherAmountField.reportValidity();
+        } else {
+          anotherAmountField.focus();
         }
     }
 
