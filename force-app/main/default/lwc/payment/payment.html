@@ -1,46 +1,47 @@
 <template>
-    
+
     <div class="paymentArea">
     
         <div class="slds-var-m-bottom_medium slds-card__header-title">{labels.component.paymentHeader}</div>
 
-            <div class="slds-grid slds-gutters slds-var-m-bottom_small">
-                <div class="slds-col slds-size_1-of-3 slds-nowrap">
-                    {labels.component.amountToPay}
-                </div>
+        <div class="slds-grid slds-gutters slds-var-m-bottom_small">
+            <div class="slds-col slds-size_1-of-3 slds-nowrap">
+                {labels.component.amountToPay}
+            </div>
 
-                <div class="slds-col">
-                    <lightning-radio-group
-                        name="amountToPay"
-                        label={labels.component.amountToPay}
-                        variant="label-hidden"
-                        options={amountToPayOptions}
-                        value={amountToPaySelection}
-                        type="radio"
-                        onchange={handleAmountToPayChange}
-                        class="slds-var-m-bottom_small requiredInput"
-                        required>
+            <div class="slds-col">
+                <lightning-radio-group 
+                    name="amountToPay" 
+                    label={labels.component.amountToPay} 
+                    variant="label-hidden"
+                    options={amountToPayOptions} 
+                    value={amountToPaySelection} 
+                    type="radio" 
+                    onclick={handleAmountToPayChange}
+                    onchange={handleAmountToPayChange} 
+                    class="slds-var-m-bottom_small requiredInput" 
+                    required>
 
-                    </lightning-radio-group>
+                </lightning-radio-group>
 
-                    <lightning-input 
-                        type="number" 
-                        name="anotherAmount" 
-                        label="Another Amount" 
-                        variant="label-hidden" 
-                        value={anotherAmount} 
-                        min="1"
-                        onfocus={handleAnotherAmountFocus}
-                        onchange={handleAnotherAmountChange}
-                        formatter="currency"
-                        class="inputAmount anotherAmount requiredInput"
-                        required={isAnotherAmountRequired} 
-                        >
-                    </lightning-input>
-
-                </div>
+                <lightning-input 
+                    type="number" 
+                    name="anotherAmount" 
+                    label="Another Amount" 
+                    variant="label-hidden"
+                    value={anotherAmount} 
+                    min="1" 
+                    onfocus={handleAnotherAmountFocus} 
+                    onchange={handleAnotherAmountChange}
+                    formatter="currency" 
+                    class="inputAmount anotherAmount requiredInput" 
+                    required={isAnotherAmountRequired}
+                    >
+                </lightning-input>
 
             </div>
+
+        </div>
 
     </div>
 

@@ -20,6 +20,8 @@ export default class Payment extends LightningElement {
         }
     }
 
+    isAnotherAmountRequired = false;
+
     amountToPaySelection;
     anotherAmount;
 
@@ -35,8 +37,10 @@ export default class Payment extends LightningElement {
             await Promise.resolve();
             anotherAmountField.reportValidity();
         } else {
-          anotherAmountField.focus();
+        anotherAmountField.focus();
+        anotherAmountField.reportValidity();
         }
+        this.isAnotherAmountRequired = this.amountToPaySelection === ANOTHER_AMOUNT_OPTION;
     }
 
     handleAnotherAmountChange(event) {
@@ -46,17 +50,7 @@ export default class Payment extends LightningElement {
 
     handleAnotherAmountFocus(event) {
         this.amountToPaySelection = ANOTHER_AMOUNT_OPTION;
-    }
-
-    get isAnotherAmountRequired() {
-        console.log('isAnotherAmountRequired()', this.amountToPaySelection);
-        if(this.amountToPaySelection === ANOTHER_AMOUNT_OPTION) {
-            console.log('isAnotherAmountRequired() = true');
-            return true;
-        }
-        console.log('isAnotherAmountRequired() = false');
-
-        return false;
+        this.isAnotherAmountRequired = this.amountToPaySelection === ANOTHER_AMOUNT_OPTION;
     }
 
     get amountToPayOptions() {
